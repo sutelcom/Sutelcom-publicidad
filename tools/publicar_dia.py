@@ -7,7 +7,7 @@ hoy=(dt.datetime.now(dt.timezone.utc)-dt.timedelta(hours=5)).date().isoformat()
 if len(sys.argv)>1 and sys.argv[1].startswith("20"): hoy=sys.argv[1]
 e=[x for x in CAL if x[0]==hoy]
 if not e: print("SIN_POST_HOY", hoy, "ULTIMO", CAL[-1][0]); sys.exit(0)
-d,svc,img=e[0]; url=f"https://publicidad.sutelcom.com/img/{img}.jpg"; c=CAP[svc]
+d,svc,img=e[0]; url=f"https://raw.githubusercontent.com/sutelcom/sutelcom-publicidad/main/img/{img}.jpg"; c=CAP[svc]
 print("HOY",d,svc,img,url)
 for u in (url,f"https://publicidad.sutelcom.com/{svc}/"):
     try: print("check",u,requests.get(u,timeout=30).status_code)
